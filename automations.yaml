@@ -3,7 +3,7 @@
   description: ''
   trigger:
   - platform: time
-    at: '16:05:00'
+    at: '16:10:00'
   condition: []
   action:
   - service: shell_command.pushupdates_to_github
