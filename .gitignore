@@ -1,22 +1,30 @@
-# An * ensures that everything will be ignored.
+# Звездочка  * блокирует все(сейчас она закоментирована).
 #*
-# You can whitelist files/folders with !, these will not be ignored.
+
+# Разрешено отправлять на гитхаб.
 
 !*.yaml
 !.gitignore
 !*.md
 !*.sh
 !*.js*
-# Ignore folders.
+
+
+# Ignore folders (блокируем папки).
+
 .storage
 .cloud
-.google.token
+.google
+.token
 .ssh
 
-# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+# Блокируем файлы Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 home-assistant.log*
+home-assistant_v2
 id-rsa*
-bloknot.txt
+bloknot.txt  
+ssh*
