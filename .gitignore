@@ -28,3 +28,4 @@ home-assistant_v2
 id-rsa*
 bloknot.txt  
 ssh*
+ssh-keygen -t rsa -b 4096 -C "misakigr@mail.ru"
