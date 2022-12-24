@@ -27,6 +27,6 @@ home-assistant.log*
 home-assistant_v2.db
 home-assistant_v2.db-wal
 id-rsa*
-bloknot.txt  
+#bloknot.txt  
 ssh*
 ssh-keygen -t rsa -b 4096 -C "misakigr@mail.ru"

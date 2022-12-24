@@ -1,0 +1,109 @@
+﻿Автоматическое сохнанение файлов на гитхаб по времени 
+
+Источник https://www.youtube.com/watch?v=hhv-WqGUy_o&t=150s
+
+cd config # переходим в каталог конфиг
+
+namo .gitignore # создаем файл гит_игнор. Ctrl x Yes выход и сохнанение
+
+mkdir .ssh # Создаем директорию название с точкой
+
+ssh-keygen -t rsa -b 4096 -C "misakigr@mail.ru" # Создаем ссэйч кейген 
+
+/root/config/.ssh/id_rsa # Помещаем ключи в каталог
+				пароли оставляем пустыми
+				жмем энтер
+
+ls -al .ssh/ # Проверяем каталог ssh там 16 файлов ключей
+
+git init # Инициализируем наш гитхаб
+
+git add . # Добавляем в него файлы
+
+git commit -m "My commit 1" # Фиксируем, добавляя коментарий
+
+git remote add origin git@github.com:misakigr/HA_connfig_buckap.git 
+			# Получаем удаленное добаление на наш
+			  адрес гитхаб ранее созданный 
+git remote add origin git@github.com:misakigr/HA_connfig_buckap.git 
+			# Сообщаем программе расположение ключей ssh 
+
+cat .ssh/id_rsa.pub   # Копируем ключа и вставляем на гитхаб настройки/SSH
+			чтобы он знал что это действительное соединение
+			
+git push -u origin master # Перемещаем все файлы на гитхаб
+
+Далее...создаем автоматизацию 
+
+nano pushupdates.sh # Создаем файл с содержимым:
+		git add .
+		git commit -m "config files on `date +'%d-%m-%y %H:%M:%S'`"
+		git push -u origin master
+
+chmod +x pushupdates.sh
+./pushupdates.sh # Выполняем тестовый запуск. На гитхабе дожна быть новая
+			запись с указанием времени и даты.
+
+nano configuration.yaml  # Добавляем запись исполнения оболочки в 
+			файл configuration.yaml
+		shell_command:
+		  pushupdates_to_github: /bin/bash pushupdates.sh
+Ctrl x # сохраняем и выходим
+# Добавляем запись в начало файла pushupdates.sh:
+		cd /config
+		git add .
+		git commit -m "config files on `date +'%d-%m-%y %H:%M:%S'`"
+		git push -u origin master
+Ctrl x # сохраняем и выходим. Теперь все в порядке
+
+В Home Assistanse обновляем конфигурацию и перезапускаем 
+у нас должна быть запущена служба Shell Commands: pushupdates_to_githab 
+по пути Developer/Services.
+Вызываем эту службу CALL SERVICE
+Проверяем гитхаб файлы
+если не получилось
+Нужно еще указать хост на запуск, так как система постоянно стирает 
+последние данные с раположением. Для этого в терминале HA запускаем команду
+git config core.sshCommand 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostkeyChecking=no -i /config/.ssh/id_rsa -F /dev/null'
+
+
+
+		  
+
+
+git add .
+git commit -m "My commit 1"
+git push -u origin master
+
+
+Файл .gitignore
+
+# Звездочка  * блокирует все(сейчас она закоментирована).
+#*
+
+# Разрешено отправлять на гитхаб.
+
+!*.yaml
+!.gitignore
+!*.md
+!*.sh
+!*.js*
+
+
+# Ignore folders (блокируем папки).
+
+.storage
+.cloud
+.google
+.token
+.ssh
+
+# Блокируем файлы Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+home-assistant.log*
+home-assistant_v2
+id-rsa*
+bloknot.txt                                                                                                                       
