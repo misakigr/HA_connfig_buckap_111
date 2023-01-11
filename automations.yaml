@@ -9,3 +9,16 @@
   - service: shell_command.pushupdates_to_github
     data: {}
   mode: single
+- id: '1673428338655'
+  alias: sms сообщения на айфон
+  description: ''
+  trigger:
+  - platform: time
+    at: '16:00:00'
+  condition: []
+  action:
+  - device_id: ca94e2b16bb3bb41161bb32e60492c98
+    domain: mobile_app
+    type: notify
+    message: привет!
+  mode: single
