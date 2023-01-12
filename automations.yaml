@@ -17,8 +17,14 @@
     at: '16:00:00'
   condition: []
   action:
-  - device_id: ca94e2b16bb3bb41161bb32e60492c98
-    domain: mobile_app
-    type: notify
-    message: привет!
+  - service: notify.mobile_app_iphone_misac_igor
+    data:
+      message: “Your Roommate arrived”
+      data:
+        push:
+          sound: 3rdParty_Success_Haptic.caf
+          badge: 0
+          service: notify.telegram_id_1
+          data:
+            message: privet
   mode: single
