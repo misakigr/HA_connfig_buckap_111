@@ -1,0 +1,10 @@
+test_notification:
+    alias: Test Notification
+    sequence:
+      - service: notify.iphone_misac_igor
+        data:
+          title: "Test Notification"
+          message: "This is a test!"
+          data:
+            push:
+              badge: 25
