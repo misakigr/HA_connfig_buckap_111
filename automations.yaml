@@ -28,14 +28,7 @@
 - id: '1673596839724'
   alias: Новая автоматизация
   description: ''
-  trigger:
-  - platform: event
-    event_type: mobile_app_notification_action
-    context:
-      user_id:
-      - d8b1fe73edc542409fed32eaa4532482
-    event_data:
-      action: ALARM
+  trigger: []
   condition: []
   action:
   - service: notify.mobile_app_iphone_misac_igor
@@ -44,7 +37,6 @@
       data:
         actions:
         - action: URL
-          title: Notification Histori
-          url: settings://notification_history
+          url: www.yotube.com
     enabled: true
   mode: single
