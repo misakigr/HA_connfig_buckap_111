@@ -20,7 +20,7 @@ telegram_control:
               inline_keyboard: 
               - '{{''\U0001F6B6''}} Вход:/en_control , {{''\U0001F6C0''}} Санузел:/bt_control'
               - '{{''\U0001F374''}} Кухня:/kn_control'
-              - '{{''\U0001F6B9''}} Спальня Д:/dd_control , {{''\U0001F6BA''}} Спальня О:/da_control'
+              - '{{''\U0001F6CF''}} Спальня Д:/dd_control , {{''\U0001F6BA''}} Спальня О:/da_control'
               - '{{''\U0001F6AB''}} Убрать меню:/menu_hide'
 
     # ## Автоматизация управления главным меню
@@ -56,8 +56,8 @@ telegram_control:
                       message: |
                         {{'\U0001F527'}} Выбрать комнату для управления:
                       inline_keyboard: 
-                      - '{{''\U0001F6B6''}} Вход:/en_control , {{''\U0001F6C0''}} Санузел:/bt_control'
-                      - '{{''\U0001F374''}} Кухня:/kn_control'
+                      - '{{''\U0001F6B6''}} Вход:/en_control'
+                      - '{{''\U0001F6C0''}} Санузел:/bt_control, {{''\U0001F374''}} Кухня:/kn_control'
                       - '{{''\U0001F6B9''}} Спальня Д:/dd_control , {{''\U0001F6BA''}} Спальня О:/da_control'
                       - '{{''\U0001F6AB''}} Убрать меню:/menu_hide'
 
