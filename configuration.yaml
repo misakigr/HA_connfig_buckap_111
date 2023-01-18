@@ -17,6 +17,7 @@ tts:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+binary_sensor: !include_dir_merge_list includes/bin_sensor
 
 sensor:
   - platform: time_date
@@ -41,7 +42,7 @@ notify:
   - name: telegram_id_1
     platform: telegram
     chat_id: !secret telegram_id_1
+    
 shell_command:
     pushupdates_to_github: /bin/bash pushupdates.sh
-
 
