@@ -366,14 +366,15 @@ telegram_control:
                       target: '{{ trigger.event.data.chat_id }}'
                       message: &msg_dd |
                         {{'\U0001F6B9'}} Управление Спальни Д:
-                        Спальня - 
-                        {{'\U0001F6B6'}} - {% if is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'on') %} Движение {% else %} Нет движения {% endif %} {{'\U0001F6AA'}} Дверь - {% if is_state('binary_sensor.0x00158d00054495dc_contact', 'on') %} Открыта {% else %} Закрыта {% endif %}
+                        Спальня -
+                        {{'\U0001F6AA'}} Дверь - {% if is_state('binary_sensor.0x00158d000119378d_contact', 'on') %} Открыта {% elif is_state('binary_sensor.0x00158d000119378d_contact', 'off') %} Закрыта {% else %} Недоступно {% endif %}
+                        {{'\U0001F6B6'}} - {% if is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'on') %} Движение {% elif is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'off') %} Нет движение {% else %} Недоступно {% endif %}
                         {{'\U0001F321'}} - {{ states('sensor.0xec1bbdfffe6f3394_temperature') }} °C, {{'\U0001F4A7'}} - {{ states('sensor.0xec1bbdfffe6f3394_humidity') }} %
                         Балкон -
-                        {{'\U0001F6B6'}} - {% if is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'on') %} Движение {% else %} Нет движения {% endif %} {{'\U0001F6AA'}} Дверь - {% if is_state('binary_sensor.0x00158d00054495dc_contact', 'on') %} Открыта {% else %} Закрыта {% endif %}
-                        {{'\U0001F321'}} - {{ states('sensor.0x00158d0001dcd47e_temperature') }} °C, {{'\U0001F4A7'}} - {{ states('sensor.0x00158d0001dcd47e_humidity') }} %
+                        {{'\U0001F6B6'}} - {% if is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'on') %} Движение {% elif is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'off') %} Нет движение {% else %} Недоступно {% endif %}
+                        {{'\U0001F321'}} - {{ states('sensor.0xec1bbdfffe6f3394_temperature') }} °C, {{'\U0001F4A7'}} - {{ states('sensor.0xec1bbdfffe6f3394_humidity') }} %
                       inline_keyboard: &keyb_dd
-                        - '{{''\U0001F4A1''}} Спальня - {% if is_state(''light.dd_ceiling_light'', ''off'')%}{{''🔴''}}{% else %}{{''🟢''}}{% endif %}:/toggle_dd_ceiling_light , {{''\U0001F308''}} WLed лента - {% if is_state(''switch.0x00158d0001117040_left'', ''off'')%}{{''🔴''}}{% else %}{{''🟢''}}{% endif %}:/toggle_dd_fan'
+                        - '{{''\U0001F4A1''}} Спальня - {% if is_state(''light.dd_ceiling_light'', ''off'')%}{{''🔴''}}{% elif is_state(''light.dd_ceiling_light'', ''on'')%}{{''🟢''}}{% else %}{{''⚠''}}{% endif %}:/toggle_dd_ceiling_light , {{''\U0001F308''}} WLed лента - {% if is_state(''switch.0x00158d0001117040_left'', ''off'')%}{{''🔴''}}{% elif is_state(''switch.0x00158d0001117040_left'', ''on'')%}{{''🟢''}}{% else %}{{''⚠''}}{% endif %}:/toggle_dd_fan'
                         - '{{''\U000021A9''}} Вернуться:/menu_back , {{''\U000021AA''}} Обновить:/dd_control'
               - conditions:
                   - condition: template
@@ -444,14 +445,15 @@ telegram_control:
                       message: &msg_da |
                         {{'\U0001F6BA'}} Управление Спальни О:
                         Спальня - 
-                        {{'\U0001F6B6'}} - {% if is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'on') %} Движение {% else %} Нет движения {% endif %} {{'\U0001F6AA'}} Дверь - {% if is_state('binary_sensor.0x00158d00054495dc_contact', 'on') %} Открыта {% else %} Закрыта {% endif %}
+                        {{'\U0001F6AA'}} Дверь - {% if is_state('binary_sensor.0x00158d000119378d_contact', 'on') %} Открыта {% elif is_state('binary_sensor.0x00158d000119378d_contact', 'off') %} Закрыта {% else %} Недоступно {% endif %}
+                        {{'\U0001F6B6'}} - {% if is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'on') %} Движение {% elif is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'off') %} Нет движение {% else %} Недоступно {% endif %}
                         {{'\U0001F321'}} - {{ states('sensor.0xec1bbdfffe6f3394_temperature') }} °C, {{'\U0001F4A7'}} - {{ states('sensor.0xec1bbdfffe6f3394_humidity') }} %
                         Балкон -
-                        {{'\U0001F6B6'}} - {% if is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'on') %} Движение {% else %} Нет движения {% endif %} {{'\U0001F6AA'}} Дверь - {% if is_state('binary_sensor.0x00158d00054495dc_contact', 'on') %} Открыта {% else %} Закрыта {% endif %}
-                        {{'\U0001F321'}} - {{ states('sensor.0x00158d0001dcd47e_temperature') }} °C, {{'\U0001F4A7'}} - {{ states('sensor.0x00158d0001dcd47e_humidity') }} %
+                        {{'\U0001F6B6'}} - {% if is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'on') %} Движение {% elif is_state('binary_sensor.0x00158d0001e547a3_occupancy', 'off') %} Нет движение {% else %} Недоступно {% endif %}
+                        {{'\U0001F321'}} - {{ states('sensor.0xec1bbdfffe6f3394_temperature') }} °C, {{'\U0001F4A7'}} - {{ states('sensor.0xec1bbdfffe6f3394_humidity') }} %
                       inline_keyboard: &keyb_da
-                        - '{{''\U0001F4A1''}} Спальня - {% if is_state(''light.da_ceiling_light'', ''off'')%}{{''🔴''}}{% else %}{{''🟢''}}{% endif %}:/toggle_da_ceiling_light , {{''\U0001F4A8''}} Увлажнитель - {% if is_state(''switch.0x00158d0001117040_left'', ''off'')%}{{''🔴''}}{% else %}{{''🟢''}}{% endif %}:/toggle_da_fan'
-                        - '{{''\U000021A9''}} Вернуться:/menu_back , {{''\U000021AA''}} Обновить:/da_control'
+                        - '{{''\U0001F4A1''}} Спальня - {% if is_state(''light.dd_ceiling_light'', ''off'')%}{{''🔴''}}{% elif is_state(''light.dd_ceiling_light'', ''on'')%}{{''🟢''}}{% else %}{{''⚠''}}{% endif %}:/toggle_dd_ceiling_light , {{''\U0001F4A8''}} Увлажнитель - {% if is_state(''switch.0x00158d0001117040_left'', ''off'')%}{{''🔴''}}{% elif is_state(''switch.0x00158d0001117040_left'', ''on'')%}{{''🟢''}}{% else %}{{''⚠''}}{% endif %}:/toggle_dd_fan'
+                        - '{{''\U000021A9''}} Вернуться:/menu_back , {{''\U000021AA''}} Обновить:/dd_control'
               - conditions:
                   - condition: template
                     value_template: '{{ trigger.event.data.command == ''/toggle_da_ceiling_light'' }}'
