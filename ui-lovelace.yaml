@@ -106,3 +106,29 @@ views:
           
         - type: weather-forecast
           entity: weather.openweathermap 
+          
+        - type: entity-button
+          entity: input_button.lr_light_cinema
+          name: Puch уведомление
+          tap_action:
+            action: call-service
+            service: input_button.press
+            service_data:
+              entity_id: input_button.lr_light_cinema
+              
+  - title: ГитХаб
+    icon: mdi:github
+    
+    cards:
+
+        - type: entity-button
+          entity: input_button.github_puch
+          name: Git_Puch buckup
+          tap_action:
+            action: call-service
+            service: input_button.press
+            service_data:
+              entity_id: input_button.github_puch
+    
+          
+          

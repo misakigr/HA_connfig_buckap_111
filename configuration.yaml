@@ -8,6 +8,7 @@ default_config:
 
 lovelace:
   mode: yaml
+input_button:
 
 
 # Load frontend themes from the themes folder

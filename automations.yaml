@@ -28,7 +28,10 @@
 - id: '1673596839724'
   alias: Новая автоматизация
   description: ''
-  trigger: []
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.lr_light_cinema
   condition: []
   action:
   - service: notify.mobile_app_iphone_misac_igor
@@ -39,4 +42,16 @@
         - action: URL
           url: www.yotube.com
     enabled: true
+  mode: single
+- id: '1674196687260'
+  alias: Git_Buckup_Button
+  description: 'При нажатие на кнопку '
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.github_puch
+  condition: []
+  action:
+  - service: shell_command.pushupdates_to_github
+    data: {}
   mode: single
