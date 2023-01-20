@@ -109,7 +109,7 @@ views:
           
         - type: entity-button
           entity: input_button.lr_light_cinema
-          name: Puch уведомление
+          name: Puch уведомление на айфон
           tap_action:
             action: call-service
             service: input_button.press

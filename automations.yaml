@@ -22,8 +22,7 @@
       message: “Your Roommate arrived”
       data:
         push:
-          sound: 3rdParty_Success_Haptic.caf
-          badge: 0
+          sound: Trevoga_electronik.wav
   mode: single
 - id: '1673596839724'
   alias: Новая автоматизация
@@ -38,10 +37,8 @@
     data:
       message: HA message ALARM
       data:
-        actions:
-        - action: URL
-          url: www.yotube.com
-    enabled: true
+        push:
+          sound: Trevoga_electronik.wav
   mode: single
 - id: '1674196687260'
   alias: Git_Buckup_Button
