@@ -11,6 +11,14 @@ lovelace:
 input_button:
 
 
+mqtt:
+  broker: core-mosquitto
+  discovery: true
+  discovery_prefix: homeassistant
+  username: mqtt
+  password: mqtt
+
+
 # Load frontend themes from the themes folder
 frontend:
   themes: !include_dir_merge_named themes

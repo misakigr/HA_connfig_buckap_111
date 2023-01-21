@@ -100,12 +100,14 @@ views:
     icon: mdi:weather-cloudy-clock
     
     cards:
+        - type: vertical-stack
+          cards:    
 
-        - type: weather-forecast
-          entity: weather.home_assistant 
-          
-        - type: weather-forecast
-          entity: weather.openweathermap 
+            - type: weather-forecast
+              entity: weather.home_assistant 
+              
+            - type: weather-forecast
+              entity: weather.openweathermap 
           
         - type: entity-button
           entity: input_button.lr_light_cinema
@@ -118,17 +120,23 @@ views:
               
   - title: ГитХаб
     icon: mdi:github
-    
     cards:
-
-        - type: entity-button
-          entity: input_button.github_puch
-          name: Git_Puch buckup
-          tap_action:
-            action: call-service
-            service: input_button.press
-            service_data:
-              entity_id: input_button.github_puch
+        - type: vertical-stack
+          cards:
+            
+            - type: markdown
+              content: >
+                 **Создание Buckupa**
+              cards:
+        
+            - type: entity-button
+              entity: input_button.github_puch
+              name: Git_Puch buckup
+              tap_action:
+                action: call-service
+                service: input_button.press
+                service_data:
+                  entity_id: input_button.github_puch
     
           
           
