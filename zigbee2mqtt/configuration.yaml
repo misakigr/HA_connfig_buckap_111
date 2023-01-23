@@ -1,5 +1,7 @@
 {
-  "external_converters": [],
+  "external_converters": [
+    "_TZE200_b6wax7g0.js"
+  ],
   "devices": [
     "devices.yaml"
   ],
